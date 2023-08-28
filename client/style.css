@@ -1,5 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700;800;900&display=swap");
 
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100;
+  height: 100vh; /* Full viewport height */
+}
+
+.chat-wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.editor {
+  width: 100%;
+  height: 100%; /* Set the height of the editable zone */
+  max-height: 100%; /* Set maximum height */
+  overflow-x: hidden;
+  overflow-y: no; /* hidden vertical scrolling */
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #000000;
+  border-color: #000000;
+}
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -23,11 +51,11 @@ body {
   justify-content: space-between;
 }
 
-#chat_container {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
+.chatbot {
+  flex-grow: 1; /* Take up all available space */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-y: auto; /* Scroll if content overflows vertically */
+  width: 100%; /* Take up half the space */
 
   display: flex;
   flex-direction: column;
@@ -157,3 +185,166 @@ form img {
   height: 30px;
 }
 
+/* remove outline */
+.ProseMirror:focus {
+  outline: none;
+}
+
+/* set height and overflow */
+.ProseMirror {
+  min-height: 750px;
+  max-height: 750px;
+  
+  overflow: hidden;
+}
+
+/* Tiptap editor styles */
+.ProseMirror {
+
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+  }
+
+  code {
+    background-color: rgba(#616161, 0.1);
+    color: #616161;
+  }
+
+  pre {
+    background: #0D0D0D;
+    color: #FFF;
+    font-family: 'JetBrainsMono', monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+
+    code {
+      color: inherit;
+      padding: 0;
+      background: none;
+      font-size: 0.8rem;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(#0D0D0D, 0.1);
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(#0D0D0D, 0.1);
+    margin: 2rem 0;
+  }
+}
+
+
+
+.toolbar button {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  background: #f0f0f0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toolbar button.is-active {
+  background: #a5893d; /* Active button color */
+}
+
+.toolbar button:hover {
+  background: #d0d0d0; /* Hover effect */
+}
+
+.toolbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #f0f0f0; /* Background color for the toolbar container */
+}
+
+.page {
+  width: 612px; /* 8.5 inches */
+  height: 792px; /* 11 inches */
+  margin: auto; /* Center the page */
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #000; /* Border to visualize the page */
+  overflow: hidden; /* Hide overflow content */
+  position: relative; /* Relative positioning for child elements */
+  transition: transform 0.3s; /* Transition for zoom effect */
+}
+
+.document {
+  width: 100%; /* Adjust to fit the container */
+  overflow: auto; /* Allow scrolling if multiple pages are present */
+}
+
+/* You can add a class for a new page button if needed */
+.new-page-button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #a5893d;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.page.selected {
+  border: 2px solid blue; /* or any other styling you prefer*/
+}
+
+.page-holder {
+  width: 100%; /* Adjust to fit the container */
+  padding: 40px; /* Margin for the page class */
+  overflow: hidden; /* Allow scrolling if content overflows */
+  position: relative; /* Relative positioning for child elements */
+}
+
+/* Add this class for zoom effect */
+.page.zoomed {
+  transform: scale(1.1); /* Example of zoom effect */
+}
+
+.new-page {
+  display: none; /* Hide new pages by default */
+}
+
+.page .editor .element {
+  max-height: calc(100% - 30px); /* Adjust as needed */
+  overflow-y: no; /* Enable scrolling if content exceeds max-height */
+}
+
+/* Font change box*/
+select {
+  padding: 5px;
+  font-family: "Alegreya Sans", sans-serif;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.font-Arial { font-family: Arial; }
+.font-Georgia { font-family: Georgia; }
+.font-Helvetica { font-family: Helvetica; }
+.font-Times-New-Roman { font-family: 'Times New Roman'; }

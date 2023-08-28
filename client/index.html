@@ -2,20 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" hrnpmef="enginuiteelogo.ico" />
+    <link rel="icon" type="image/svg+xml" href="enginuiteelogo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Enginuitee - Professional Career Consulting</title>
     <link rel="stylesheet" href="style.css">
+    
   </head>
   <body>
-    <div id="app">
-      <div id="chat_container"></div>
-
-      <form>
-        <textarea name="prompt" cols="1" rows="1" placeholder="Ask Enginuitee..."></textarea>
-        <button type="submit"><img src="assets/send.svg" /></button>
-      </form>
+    <div class="container">
+      <div class="chat-wrapper">
+        <div class="chatbot">
+          <div id="chat_container"></div>
+        </div>
+        <form>
+          <textarea name="prompt" cols="1" rows="1" placeholder="Ask Enginuitee..."></textarea>
+          <button type="submit"><img src="assets/send.svg" /></button>
+        </form>
+      </div>
+      
+      <div class="document" id="document">
+        <div class="toolbar-container" id="toolbar-container">
+          <!-- Toolbar will be mounted here -->
+        </div>
+        <div class="page-holder"> <!-- Add this line -->
+          <div class="page">
+            <div class="editor" id="editor">
+              <!-- TipTap editor will be mounted here -->
+              <script type="module" src="editor2.js"></script>
+              <div class="element"></div>
+            </div>
+          </div>
+        </div> <!-- Add this line -->
+      </div>
+      
     </div>
-    <script type="module" src="script.js"></script>
+    <script type="module" src="chatbot.js"></script>
+    <script type="module" src="editor2.js"></script> <!-- Include the editor script -->
   </body>
 </html>
