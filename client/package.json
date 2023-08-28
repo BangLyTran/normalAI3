@@ -9,6 +9,23 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@babel/cli": "^7.22.10",
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-react": "^7.22.5",
     "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "@tiptap/core": "^2.0.4",
+    "@tiptap/extension-color": "^2.0.4",
+    "@tiptap/extension-font-family": "^2.1.6",
+    "@tiptap/extension-highlight": "^2.0.4",
+    "@tiptap/extension-list-item": "^2.0.4",
+    "@tiptap/extension-text-align": "^2.0.4",
+    "@tiptap/extension-text-style": "^2.1.6",
+    "@tiptap/pm": "^2.0.4",
+    "@tiptap/react": "^2.0.4",
+    "@tiptap/starter-kit": "^2.0.4",
+    "sass": "^1.65.1"
   }
 }
